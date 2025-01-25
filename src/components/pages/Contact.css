@@ -1,0 +1,80 @@
+.contact-banner {
+  background-image: url("https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/resources/contact-banner.avif");
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.blur {
+  backdrop-filter: blur(4px);
+}
+
+.contact-container {
+  font-family: var(--roboto-condensed);
+  background-color: transparent !important;
+  margin: 3rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-input {
+  border-radius: 0 !important;
+  border: 1px solid var(--secondaryBrown);
+}
+
+.contact-title {
+  font-size: 2.5rem;
+  color: var(--darkBrown);
+  font-family: var(--roboto-condensed);
+  text-transform: uppercase;
+  margin: 0 !important;
+  font-weight: 800;
+}
+
+.contact-text {
+  color: var(--darkBrown);
+}
+
+.btn-contact {
+  align-self: flex-end !important;
+
+}
+
+.opening-hours {
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--darkBrown);
+}
+
+.contact-days-container {
+  font-weight: 400;
+  padding: 0;
+  list-style: none;
+  color: rgb(0, 0, 0);
+  text-transform: uppercase;
+}
+
+.contact-days-container > li {
+  height: 2.4rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-span {
+  white-space: nowrap;
+  align-self: flex-end !important;
+}
+
+.span-line {
+  width: 100%;
+  border-bottom: 0.2px solid var(--mainBrown);
+}
+
+.contact-links{
+  color: var(--mainBrown);
+}
+
+.contact-links:hover{
+  color: var(--secondaryBrown);
+}

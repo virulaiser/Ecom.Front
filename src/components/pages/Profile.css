@@ -1,0 +1,29 @@
+.profile-banner {
+  background-image: url("https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/resources/profile-banner.avif");
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.profile-container {
+  background-color: white;
+}
+
+.span-name {
+  text-transform: capitalize;
+}
+
+.profile-icon{
+  font-size: 3.5rem;
+}
+
+.profile-form-btn{
+  background-color: var(--mainBrown);
+  border-radius: 0%;
+}
+
+.order-modal-title{
+  color: var(--mainBrown);
+  text-transform: uppercase;
+}

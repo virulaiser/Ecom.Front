@@ -1,0 +1,210 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap");
+
+:root {
+  --mainBrown: #532e1c;
+  --secondaryBrown: #c5a880;
+  --darkBrown: #241b1b;
+  --lightBackground: #e6e6e6;
+  --clr-brown-terciary: #efd9ba;
+  --creamyWhite: #f8f0e5;
+  /* Transition default */
+  --transition-default: all 100ms ease-in-out;
+  /* Roboto Condensed Typo */
+  --roboto-condensed: "Roboto Condensed", sans-serif;
+}
+
+body {
+  background-color: var(--creamyWhite) !important;
+  font-family: var(--roboto-condensed) !important;
+}
+.main-btn {
+  background-color: var(--mainBrown);
+  color: var(--lightBackground);
+  padding: 0.5rem 1.5rem;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-default);
+  border: 1px solid var(--mainBrown);
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 0 !important;
+}
+
+.main-btn:hover {
+  background-color: transparent;
+  color: var(--mainBrown);
+  border: 1px solid var(--mainBrown);
+  border-color: var(--mainBrown);
+}
+
+input:focus {
+  box-shadow: none !important;
+  border-color: var(--secondaryBrown) !important;
+  color: var(--mainBrown) !important;
+}
+
+.scroll-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  height: 2rem;
+  width: 2rem;
+  background-color: var(--secondaryBrown);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-default);
+}
+
+.scroll-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: white;
+}
+
+.line-span {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 120px;
+  border-bottom: 3px solid var(--clr-brown-terciary);
+  margin: 1.5rem 0;
+}
+
+.project-btn {
+  position: fixed;
+  bottom: 50%;
+  left: -58px;
+  height: 2rem;
+  width: auto;
+  padding: 1rem;
+  background-color: var(--mainBrown);
+  border: solid 1px var(--clr-brown-terciary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-default);
+  animation-name: opacity;
+  animation-duration: 3s;
+  z-index: 99999;
+  transform: rotate(-90deg);
+}
+
+@keyframes opacity {
+  from {
+    left: -100px;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    left: -58px;
+  }
+}
+
+.project-btn:hover {
+  background-color: var(--secondaryBrown);
+}
+
+.project-link {
+  color: white;
+  font-size: 1rem;
+  font-weight: 800;
+}
+
+select {
+  background-color: white;
+  border: 0;
+}
+
+select:focus {
+  box-shadow: none !important;
+  border-color: var(--secondaryBrown) !important;
+  color: var(--mainBrown) !important;
+}
+
+textarea {
+  box-shadow: none !important;
+  border-color: var(--secondaryBrown) !important;
+  color: var(--mainBrown) !important;
+}
+
+.title {
+  font-family: var(--roboto-condensed);
+  font-weight: 700;
+  font-size: 5rem;
+  text-shadow: black 0px 10px 1rem;
+  color: white;
+  z-index: 10;
+}
+
+.main-container {
+  background-image: url("https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/resources/grey-marble-bg.avif");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.add-btn {
+  height: auto;
+
+  font-size: 13px;
+  background-color: var(--mainBrown);
+  color: var(--lightBackground);
+  cursor: pointer;
+  border: none;
+}
+.add-btn:hover {
+  background-color: var(--secondaryBrown);
+  color: var(--lightBackground);
+}
+
+th {
+  color: var(--mainBrown) !important;
+}
+
+.slide-down {
+  display: none;
+}
+
+@media (max-width: 576px) {
+  .slide-down {
+    display: block;
+    color: var(--creamyWhite);
+    animation: bounce 2s ease infinite;
+    text-shadow: rgba(0, 0, 0, 0.241) 0px 7px 0.5rem;
+  }
+  .title {
+    font-size: 3rem;
+    text-shadow: black 0px 10px 1rem;
+    color: white;
+    z-index: 10;
+  }
+}
+
+@keyframes bounce {
+  70% {
+    transform: translateY(0%);
+  }
+  80% {
+    transform: translateY(-15%);
+  }
+  90% {
+    transform: translateY(0%);
+  }
+  95% {
+    transform: translateY(-7%);
+  }
+  97% {
+    transform: translateY(0%);
+  }
+  99% {
+    transform: translateY(-3%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.modal-content {
+  border-radius: 0 !important;
+}

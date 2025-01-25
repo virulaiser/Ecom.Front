@@ -1,0 +1,10 @@
+.modal-bg {
+  background-image: url("https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/resources/register-bg.avif");
+  background-size: cover;
+}
+
+.close-btn {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}

@@ -1,0 +1,35 @@
+.card-body-details {
+  background-color: white;
+}
+
+hr {
+  color: var(--darkBrown);
+}
+
+.price-text {
+  color: var(--secondaryBrown);
+}
+
+.data-container {
+  padding-top: 4.5rem;
+}
+
+.accordion-button:not(.collapsed) {
+  color: white;
+  background-color: var(--mainBrown);
+  box-shadow: inset 0 calc(-1 * var(--secondaryBrown)) 0 var(--secondaryBrown);
+}
+
+.accordion-button.collapsed {
+  color: white;
+  background-color: var(--darkBrown);
+}
+
+.accordion-button::after {
+  background-image: url("https://www.freeiconspng.com/thumbs/white-arrow-png/white-down-arrow-png-2.png") !important;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+/* cambio */

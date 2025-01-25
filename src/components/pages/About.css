@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Roboto+Condensed:wght@300;400;700&display=swap");
+
+.about-bg-img {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/resources/about-banner.avif");
+  background-size: cover;
+  background-position: center;
+}
+
+.main-about-text {
+  font-family: "Inter", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 4rem;
+}
+
+.about-text {
+  font-family: "Inter", sans-serif;
+}
+
+.about-gd-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgb(0, 0, 0, 0.9),
+    rgb(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.2),
+    transparent
+  );
+  overflow: hidden;
+}
+
+.about-brand-img {
+  max-width: 30rem;
+}
+
+.tech-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.icon {
+  width: 4rem;
+  height: 4rem;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.icon:hover {
+  position: relative;
+  transition: all 0.3s ease;
+  opacity: 1;
+  color: var(--mainBrown);
+}
+
+.team-img {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  object-fit: cover;
+  filter: grayscale(1);
+  cursor: pointer;
+  transition: var(--transition-default);
+}
+.team-img:hover {
+  filter: grayscale(0);
+}
+
+.contact-container {
+  background-color: var(--darkBrown);
+}
+
+.social-icons {
+  margin-top: 1rem;
+  width: 2rem;
+  height: 2rem;
+  color: var(--mainBrown);
+  transition: var(--transition-default);
+}
+
+.social-icons:hover {
+  transform: scale(1.3);
+  color: var(--darkBrown);
+}
+
+.about-img {
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  object-fit: cover;
+  cursor: pointer;
+  transition: var(--transition-default);
+  overflow: hidden;
+}
+
+.about-img:hover {
+  scale: 1.005;
+  opacity: 0.9;
+}
+
+.click-here {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.bg-blur {
+  filter: blur(0.4rem);
+}
+
+.modal-about {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.modal-about-inactive {
+  display: none;
+}
+
+.about-card {
+  position: relative;
+  width: 50%;
+  height: 50%;
+  background-color: var(--creamyWhite);
+  display: flex;
+  animation: 0.5s ease-in-out text;
+}
+
+.about-card-img {
+  width: 40%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-card-details {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.about-card-title {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--darkBrown);
+  animation-name: text;
+  animation-duration: 2s;
+  opacity: 100;
+}
+
+@keyframes text {
+  from {
+    margin-right: 5rem;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    margin-right: 0;
+  }
+}
+
+.about-card-btn {
+  color: var(--darkBrown);
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .about-brand-img {
+    max-width: 20rem;
+  }
+  .about-card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 80%;
+    width: 90%;
+  }
+  .about-card-img {
+    width: 100%;
+    max-height: 300px;
+  }
+  .about-card-details {
+    padding: 0 1.5rem;
+  }
+}

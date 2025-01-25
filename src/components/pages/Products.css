@@ -1,0 +1,61 @@
+.image-container {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-image: url("https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/resources/products-banner.avif");
+  background-size: cover;
+}
+
+h6 {
+  color: var(--lightBackground);
+  font-size: 17px;
+  font-family: "Oswald", sans-serif;
+}
+
+.position-relative:hover .addToCart {
+  opacity: 1;
+  visibility: visible;
+}
+
+.main-container {
+  background-image: url("/imgs/grey-marble-bg.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+.main-card {
+  background-color: rgba(255, 255, 255, 0.53);
+  width: 15rem;
+  height: auto;
+  transition: 0.25s ease-in;
+}
+
+.main-card:hover {
+  background-color: #c5a880ba;
+  transform: scale(1.05);
+}
+
+.card-img {
+  transition: 0.5s ease-in;
+}
+
+.card-img:hover {
+  transform: scale(1.05);
+}
+
+.card-info {
+  object-fit: cover;
+  transition: 0.2s ease-in;
+  background-color: white;
+}
+
+.product-name {
+  font-size: 0.9rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1rem;
+}
+
+
