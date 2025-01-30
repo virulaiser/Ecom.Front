@@ -296,11 +296,13 @@ function About() {
           </section>
           <section>
             <div className="d-flex flex-column justify-content-center align-items-center">
-              <h2 className="contact-title">USER WEB</h2>
+              <h2 className="contact-title">BACK-END WEB</h2>
               <span className="line-span"></span>
-              <Link to="/">
+              <Link to="https://ecom-back-nine.vercel.app">
                 <img
-                src={`${import.meta.env.VITE_URL_SUPABASE}/storage/v1/object/public/resources/about-1.avif`}
+                  src={`${
+                    import.meta.env.VITE_URL_SUPABASE
+                  }/storage/v1/object/public/resources/about-1.avif`}
                   alt=""
                   className="about-img"
                 />
@@ -309,9 +311,14 @@ function About() {
             <div className="d-flex flex-column justify-content-center align-items-center mt-5">
               <h2 className="contact-title">ADMIN WEB</h2>
               <span className="line-span"></span>
-              <Link to="https://doppios-admin.vercel.app/" target="_blank">
+              <Link
+                to="https://ecom-admin-psi-seven.vercel.app"
+                target="_blank"
+              >
                 <img
-                  src="https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/resources/about-2.avif"
+                  src={`${
+                    import.meta.env.VITE_URL_SUPABASE
+                  }/storage/v1/object/public/resources/about-2.avif`}
                   alt=""
                   className="about-img"
                 />
