@@ -82,13 +82,13 @@ function About() {
     },
   ];
 
-  const handleDatabase = () => {
+  /*  const handleDatabase = () => {
     const response = axios({
       method: "patch",
       url: `${import.meta.env.VITE_API_URL}/database`,
     });
     navigate("/");
-  };
+  }; */
   return (
     <div>
       <div className={modalAbout ? "bg-blur" : ""}>
@@ -313,7 +313,7 @@ function About() {
               <span className="line-span"></span>
               <Link
                 to="https://ecom-admin-psi-seven.vercel.app"
-                target="_blank"
+                target=" _blank"
               >
                 <img
                   src={`${
