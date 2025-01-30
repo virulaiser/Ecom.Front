@@ -52,8 +52,7 @@ function About() {
     {
       name: "Kathia Olaverry",
       age: 24,
-      image:
-        "https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/profile_images/photo_Kathia.jpeg",
+      image: "/imgs/profile-kathi.jpg",
       title: "Nutritionist | Full Stack Dev",
       linkedin: "https://www.linkedin.com/in/kathia-olaverry/",
       github: "https://github.com/Kathia01",
@@ -82,13 +81,6 @@ function About() {
     },
   ];
 
-  /*  const handleDatabase = () => {
-    const response = axios({
-      method: "patch",
-      url: `${import.meta.env.VITE_API_URL}/database`,
-    });
-    navigate("/");
-  }; */
   return (
     <div>
       <div className={modalAbout ? "bg-blur" : ""}>
