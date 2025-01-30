@@ -304,7 +304,7 @@ function About() {
               <h2 className="contact-title">ADMIN WEB</h2>
               <span className="line-span"></span>
               <Link
-                to="https://ecom-admin-psi-seven.vercel.app"
+                to="https://ecom-admin-virulaisers-projects.vercel.app/"
                 target=" _blank"
               >
                 <img
