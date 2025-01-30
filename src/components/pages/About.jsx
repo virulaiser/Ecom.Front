@@ -52,7 +52,7 @@ function About() {
     {
       name: "Kathia Olaverry",
       age: 24,
-      image: "/imgs/profile-kathi.jpg",
+      image: "/imgs/kathia.jpg",
       title: "Nutritionist | Full Stack Dev",
       linkedin: "https://www.linkedin.com/in/kathia-olaverry/",
       github: "https://github.com/Kathia01",
