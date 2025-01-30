@@ -68,7 +68,9 @@ function Header() {
         <div>
           <Navbar.Brand href="/">
             <img
-              src="https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/resources/doppios-white-logo.png"
+              src={`${
+                import.meta.env.VITE_URL_SUPABASE
+              }/storage/v1/object/public/resources/doppios-white-logo.png`}
               alt="Doppios Logo"
               className="nav-logo"
             />
@@ -180,107 +182,3 @@ function Header() {
 }
 
 export default Header;
-
-{
-  /* <nav
-        className={`navbar navbar-expand-lg navbar-light bg-dark fixed-top ${
-          scroll ? "nav-scroll" : "nav-custom"
-        }`}
-      >
-        <div className="container-fluid">
-          <NavLink className="navbar-brand" to="/">
-            Porto Membrillo
-          </NavLink>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div
-            className="collapse navbar-collapse d-flex justify-content-between align-items-baseline"
-            id="navbarNav"
-          >
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <NavLink className="nav-link" aria-current="page" to="/">
-                  Home
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/products">
-                  Products
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/about-us">
-                  About
-                </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink className="nav-link" to="/contact">
-                  Contact
-                </NavLink>
-              </li>
-            </ul>
-            <div>
-              <ModalRegister
-                fullscreen={fullscreenRegister}
-                show={showRegister}
-                handleClose={handleCloseAll}
-                handleShowAll={handleShowAll}
-                setShowLogin={setShowLogin}
-                setFullscreenLogin={setFullscreenLogin}
-                setShowRegister={setShowRegister}
-                setFullscreenRegister={setFullscreenRegister}
-              />
-              <Button
-                className="me-2 mb-2"
-                onClick={() =>
-                  handleShowAll(
-                    setShowRegister,
-                    setFullscreenRegister,
-                    setShowLogin,
-                    setFullscreenLogin
-                  )
-                }
-              >
-                Register
-              </Button>
-              <ModalLogin
-                fullscreen={fullscreenLogin}
-                show={showLogin}
-                handleClose={handleCloseAll}
-                handleShowAll={handleShowAll}
-                setShowRegister={setShowRegister}
-                setFullscreenRegister={setFullscreenRegister}
-                setShowLogin={setShowLogin}
-                setFullscreenLogin={setFullscreenLogin}
-              />
-              <Button
-                className="me-2 mb-2"
-                onClick={() =>
-                  handleShowAll(
-                    setShowLogin,
-                    setFullscreenLogin,
-                    setShowRegister,
-                    setFullscreenRegister
-                  )
-                }
-              >
-                Login
-              </Button>
-              <ModalCart show={showCart} handleClose={handleCloseCart} />
-              <Button className="me-2 mb-2" onClick={handleShowCart}>
-                Cart
-              </Button>
-            </div>
-          </div>
-        </div>
-      </nav> */
-}

@@ -23,11 +23,6 @@ function ModalRegister({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const formData = new FormData();
-    // formData.append("firstname", firstname);
-    // formData.append("lastname", lastname);
-    // formData.append("email", email);
-    // formData.append("password", password);
 
     await axios({
       method: "post",
@@ -55,7 +50,9 @@ function ModalRegister({
           <div className="register-container">
             <div className="register-img-container">
               <img
-                src="https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/resources/doppios-main-logo.png"
+                src={`${
+                  import.meta.env.VITE_URL_SUPABASE
+                }/storage/v1/object/public/resources/doppios-main-logo.png`}
                 alt="mainLogo"
                 className="login-img"
               />
@@ -154,83 +151,3 @@ function ModalRegister({
 }
 
 export default ModalRegister;
-
-{
-  /* <div className="login-box p-4">
-<p>Create an account</p>
-<form method="post" onSubmit={handleSubmit}>
-  <div className="user-box">
-    <input
-      type="text"
-      name="firstname"
-      id="firstname"
-      className="form-control"
-      autoComplete="off"
-      value={firstname}
-      onChange={(event) => setFirstname(event.target.value)}
-    />
-    <label htmlFor="firstname">Firstname</label>
-  </div>
-  <div className="user-box">
-    <input
-      type="text"
-      name="lastname"
-      id="lastname"
-      className="form-control"
-      autoComplete="off"
-      value={lastname}
-      onChange={(event) => setLastname(event.target.value)}
-    />
-    <label htmlFor="lastname">Lastname</label>
-  </div>
-  <div className="user-box">
-    <input
-      type="email"
-      name="email"
-      id="email"
-      className="form-control"
-      autoComplete="off"
-      value={email}
-      onChange={(event) => setEmail(event.target.value)}
-    />
-    <label htmlFor="email">Email</label>
-  </div>
-  <div className="user-box">
-    <input
-      type="password"
-      name="password"
-      id="password"
-      className="form-control"
-      value={password}
-      onChange={(event) => setPassword(event.target.value)}
-    />
-    <label htmlFor="password">Password</label>
-  </div>
-  <button className="btn-modal" type="submit">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    Submit
-  </button>
-</form>
-<div className="col d-flex align-items-start">
-  <p className="mt-3 text-white">
-    Already have an account?{" "}
-    <Link
-      onClick={() =>
-        handleShowAll(
-          setShowLogin,
-          setFullscreenLogin,
-          setShowRegister,
-          setFullscreenRegister
-        )
-      }
-      className="a2"
-    >
-      Sign in!
-    </Link>
-  </p>
-</div>
-</div> */
-}

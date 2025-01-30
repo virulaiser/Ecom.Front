@@ -51,7 +51,9 @@ function ModalLogin({
           <div className="login-container">
             <div className="login-img-container">
               <img
-                src="https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/resources/doppios-main-logo.png"
+                src={`${
+                  import.meta.env.VITE_URL_SUPABASE
+                }/storage/v1/object/public/resources/doppios-main-logo.png`}
                 alt="mainLogo"
                 className="login-img"
               />

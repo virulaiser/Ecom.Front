@@ -21,7 +21,9 @@ function OrderConfirmed() {
       <div className=" col-12 col-md-12 d-flex flex-column justify-content-center align-items-center p-5">
         <img
           className="confirmation-logo"
-          src="https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/resources/doppios-black-logo.png"
+          src={`${
+            import.meta.env.VITE_URL_SUPABASE
+          }/storage/v1/object/public/resources/doppios-black-logo.png`}
           alt="Doppio's logo"
         />
         <h3 className="fw-semibold">Thank you for buying at Doppio's!</h3>

@@ -3,7 +3,7 @@ import "./MainNavbar.css";
 import ModalRegister from "./ModalRegister";
 import ModalLogin from "./ModalLogin";
 import ModalCart from "./ModalCart";
-import { Button, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import "./Header.css";
 import { BsCartFill, BsFillPersonFill } from "react-icons/bs";
@@ -19,7 +19,6 @@ function MainNavbar() {
   const [fullscreenLogin, setFullscreenLogin] = useState(true);
   const [showLogin, setShowLogin] = useState(false);
   const [showCart, setShowCart] = useState(false);
-  const [scroll, setScroll] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
   const [scrollData, setScrollData] = useState({ y: 0, lastY: 0 });
@@ -102,7 +101,9 @@ function MainNavbar() {
       <div className="nav-logo-container">
         <Link to={"/"}>
           <img
-            src="https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/resources/doppios-white-logo.png"
+            src={`${
+              import.meta.env.VITE_URL_SUPABASE
+            }/storage/v1/object/public/resources/doppios-white-logo.png`}
             alt="Doppios Logo"
             className="nav-logo"
           />

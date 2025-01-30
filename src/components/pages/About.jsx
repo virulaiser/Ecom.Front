@@ -300,7 +300,7 @@ function About() {
               <span className="line-span"></span>
               <Link to="/">
                 <img
-                  src="https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/resources/about-1.avif"
+                src={`${import.meta.env.VITE_URL_SUPABASE}/storage/v1/object/public/resources/about-1.avif`}
                   alt=""
                   className="about-img"
                 />

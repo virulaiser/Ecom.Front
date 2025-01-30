@@ -67,7 +67,9 @@ function Home() {
           <div className="row d-flex justify-content-center m-0 p-0 mb-5 home-title">
             <img
               className="home-logo"
-              src="https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/resources/doppios-main-logo.png"
+              src={`${
+                import.meta.env.VITE_URL_SUPABASE
+              }/storage/v1/object/public/resources/doppios-main-logo.png`}
               alt="Doppio's"
             />
             <h3 className="mt-5 pt-5 fw-bold text-center home-slide-down">
@@ -97,7 +99,9 @@ function Home() {
           >
             <div className="home-img-container">
               <img
-                src="https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/resources/home-about-img.avif"
+                src={`${
+                  import.meta.env.VITE_URL_SUPABASE
+                }/storage/v1/object/public/resources/home-about-img.avif`}
                 alt="coffee-shop"
                 className="img-home"
               />
@@ -127,7 +131,9 @@ function Home() {
               </p>
               <img
                 className="img align-self-center mt-4 mb-0 opacity-75 home-section-logo"
-                src="https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/resources/doppios-black-logo.png"
+                src={`${
+                  import.meta.env.VITE_URL_SUPABASE
+                }/storage/v1/object/public/resources/doppios-black-logo.png"`}
                 alt="Doppio's logo"
               />
             </div>
@@ -200,21 +206,27 @@ function Home() {
           <Carousel>
             <Carousel.Item>
               <Image
-                src="https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/resources/home-carousel-1.avif"
+                src={`${
+                  import.meta.env.VITE_URL_SUPABASE
+                }/storage/v1/object/public/resources/home-carousel-1.avif`}
                 className="w-100"
                 fluid
               />
             </Carousel.Item>
             <Carousel.Item>
               <Image
-                src="https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/resources/home-carousel-2.avif"
+                src={`${
+                  import.meta.env.VITE_URL_SUPABASE
+                }/storage/v1/object/public/resources/home-carousel-2.avif`}
                 className="w-100"
                 fluid
               />
             </Carousel.Item>
             <Carousel.Item>
               <Image
-                src="https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/resources/home-carousel-3.avif"
+                src={`${
+                  import.meta.env.VITE_URL_SUPABASE
+                }/storage/v1/object/public/resources/home-carousel-3.avif`}
                 className="w-100"
                 fluid
               />
