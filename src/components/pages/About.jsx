@@ -294,7 +294,7 @@ function About() {
                 <img
                   src={`${
                     import.meta.env.VITE_URL_SUPABASE
-                  }/storage/v1/object/public/resources/about-1.avif`}
+                  }/storage/v1/object/public/resources/about-1.png`}
                   alt=""
                   className="about-img"
                 />
@@ -310,7 +310,7 @@ function About() {
                 <img
                   src={`${
                     import.meta.env.VITE_URL_SUPABASE
-                  }/storage/v1/object/public/resources/about-2.avif`}
+                  }/storage/v1/object/public/resources/about-2.png`}
                   alt=""
                   className="about-img"
                 />
