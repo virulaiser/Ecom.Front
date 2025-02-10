@@ -100,7 +100,7 @@ function CartCheckout() {
                       <td scope="row">
                         <img
                           className="me-4 checkout-table-img"
-                          src={`https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/products/${product.image}?t=2023-09-19T13%3A20%3A01.474Z`}
+                          src={`${import.meta.env.VITE_URL_SUPABASE}/storage/v1/object/public/products/${product.image}?t=2023-09-19T13%3A20%3A01.474Z`}
                           alt={product.name}
                         />
                          {product.name.substring(0, 15)}...

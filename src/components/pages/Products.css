@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   height: 100vh;
-  background-image: url("https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/resources/products-banner.avif");
+  background-image: url(`${import.meta.env.VITE_API_URL}/storage/v1/object/public/resources/products-banner.avif`);
   background-size: cover;
 }
 

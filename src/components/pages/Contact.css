@@ -1,5 +1,5 @@
 .contact-banner {
-  background-image: url("https://mcbzesritumxqjtbullp.supabase.co/storage/v1/object/public/resources/contact-banner.avif");
+  background-image: url(`${import.meta.env.VITE_URL_SUPABASE}/storage/v1/object/public/resources/contact-banner.avif`);
   background-size: cover;
   margin: 0;
   padding: 0;

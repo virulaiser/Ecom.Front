@@ -1,6 +1,4 @@
-import React from "react";
 import "./Products.css";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { addToCart } from "../../redux/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ProductCard from "../partials/ProductCard";
 import { BsFillArrowDownCircleFill } from "react-icons/bs";
+import useAxios from "../../hook/useAxios";
 
 function Products() {
   const [products, setProducts] = useState();
@@ -28,19 +27,11 @@ function Products() {
     });
   };
 
-  useEffect(() => {
-    const getProducts = async () => {
-      const response = await axios({
-        method: "GET",
-        url: `${import.meta.env.VITE_API_URL}/products/filter/${filtered}`,
-        /* headers: {
-          Authorization: "Bearer " + (user && user.token),
-        }, */
-      });
-      response && setProducts(response.data);
-    };
-    getProducts();
-  }, [filtered]);
+const { data,loading,error } =  useAxios(`${import.meta.env.VITE_API_URL}/products/filter/${filtered}`, "GET", null);
+
+useEffect (() => {
+      data && setProducts(data); 
+    }, [data,loading,error,filtered]);
 
   const handleAddCart = async (product) => {
     const control = cart.find((item) => item._id === product._id);
@@ -61,6 +52,8 @@ function Products() {
   return (
     products && (
       <>
+      { loading  && <p>Cargando...</p>}
+       {error && <p>Error: {error}</p>}
         <div className="container-fluid main-container p-0">
           <div className="container-fluid d-flex align-items-center flex-column justify-content-center image-container m-0 p-0">
             <h2 className="text-white text-center title">

@@ -17,14 +17,14 @@ import {
   SiSupabase,
 } from "react-icons/si";
 import { BsTrello, BsFillArrowDownCircleFill } from "react-icons/bs";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, /* useNavigate */ } from "react-router-dom";
 import BackToTop from "../partials/BackToTop";
-import axios from "axios";
+/* import axios from "axios"; */
 import { useState } from "react";
 import ModalAbout from "../partials/ModalAbout";
 
 function About() {
-  const navigate = useNavigate();
+ /*  const navigate = useNavigate(); */
   const [modalAbout, setModalAbout] = useState(false);
   const [person, setPerson] = useState(null);
   const team = [
