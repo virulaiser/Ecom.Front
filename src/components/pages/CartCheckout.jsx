@@ -23,6 +23,7 @@ import {
 import "./CartCheckout.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useAxios from "../../hook/useAxios";
 
 function CartCheckout() {
   const user = useSelector((state) => state.user);
@@ -37,7 +38,8 @@ function CartCheckout() {
     }
   }, [user]);
 
-  const handleClick = async () => {
+  //***si no hay Id no hay compra */
+ /*  const handleClick = async () => {
     const orderId = uuidv4();
     const response = await axios({
       method: "post",
@@ -47,10 +49,30 @@ function CartCheckout() {
         Authorization: "Bearer " + (user && user.token),
       },
     });
+    console.log ("autorization =>","Bearer " + (user && user.token));
     dispatch(resetCart());
     dispatch(resetPrice());
     navigate("/checkout/confirmed");
-  };
+  }; */
+
+
+  const orderId = uuidv4();
+ const {data} =useAxios(`${import.meta.env.VITE_API_URL}/orders/`, "POST", { cart, orderPrice, orderId },(user && user.token)
+    );
+
+  const handleClick = async () => {
+     console.log(data && data.id);
+     console.log("Token recibido:", data?.token);
+    dispatch(resetCart());
+    dispatch(resetPrice());
+    navigate("/checkout/confirmed");
+   
+   }; 
+
+
+
+
+
 
   const handleAddCart = async (product) => {
     dispatch(addToCart(product));

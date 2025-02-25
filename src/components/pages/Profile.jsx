@@ -11,6 +11,7 @@ import { BsFillArrowDownCircleFill } from "react-icons/bs"
 import useAxios from "../../hook/useAxios";
 
 function Profile() {
+  const [client, setClient] = useState({});
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
@@ -29,8 +30,9 @@ function Profile() {
   const {datas} =useAxios(`${import.meta.env.VITE_API_URL}/users/${user.id}`, "patch", { firstname, lastname, email, password});
   const handleSubmit =  (e) => {
     e.preventDefault();
-     console.log("sucessful",datas);
      navigate(`/`);
+     console.log("sucessful",datas);
+    
    };
 
  const { data,loading,error } =  useAxios (`${import.meta.env.VITE_API_URL}/users/${user.id}`, "GET", null);
@@ -38,14 +40,16 @@ function Profile() {
  useEffect (() => {
     if (!user) {navigate("/")};
    if(data){
+  setClient(data);
       setFirstname(data.firstname);
       setLastname(data.lastname);
       setUsername(firstname + " " + lastname);
       setEmail(data.email);
+      console.log({client});
    }
      }, [data,loading,error,user]);
 
-useEffect(() => {
+/* useEffect(() => {
     const getOrders = async () => {
       const responseOrders = await axios({
         method: "get",
@@ -54,16 +58,15 @@ useEffect(() => {
       responseOrders && setOrders(responseOrders.data.orders);
     };
     getOrders();
-  }, [user]);
+  }, [user]); */
    
  
-  /*  const { dataO } = useAxios(`${import.meta.env.VITE_API_URL}/orders/${user.id}`, "GET", null);
+   const { data0 } = useAxios(`${import.meta.env.VITE_API_URL}/orders/${user.id}`, "GET", null);
 
   useEffect( () => {
-    if(dataO)
-    {setOrders(dataO.data.orders);
-      console.log("order");}
-}, [user]);  */
+    data0 && setOrders(data.data.orders);
+      console.log("order");
+}, [user]); 
 
 
   return (
