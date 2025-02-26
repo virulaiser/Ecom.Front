@@ -12,13 +12,13 @@ import "react-toastify/dist/ReactToastify.css";
 import "./Product.css";
 
 function Product() {
-  const params = useParams();
   const cart = useSelector((state) => state.cart);
-  const slug = params.slug;
-  const dispatch = useDispatch();
   const [interestingProduct, setInterestingProduct] = useState([]);
   const [product, setProduct] = useState([]);
+  const params = useParams();
+  const slug = params.slug;
   const location = useLocation();
+  const dispatch = useDispatch();
 
   const notify = () => {
     toast.success("Product added!", {

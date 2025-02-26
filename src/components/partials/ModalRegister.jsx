@@ -41,7 +41,7 @@ function ModalRegister({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+     console.log(datas);
     handleShowAll(
       setShowLogin,
       setFullscreenLogin,
