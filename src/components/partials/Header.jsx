@@ -1,17 +1,18 @@
 import { NavLink } from "react-router-dom";
-import ModalRegister from "./ModalRegister";
-import ModalLogin from "./ModalLogin";
-import ModalCart from "./ModalCart";
-import { Button, Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Button, Nav, Navbar} from "react-bootstrap";
 import { useEffect, useState } from "react";
-import "./Header.css";
-import NavbarToggle from "./NavbarToggle";
 import { BsCartFill, BsFillPersonFill } from "react-icons/bs";
 import { HiOutlineLogout } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/userSlice";
+import NavbarToggle from "./NavbarToggle";
+import ModalRegister from "./ModalRegister";
+import ModalLogin from "./ModalLogin";
+import ModalCart from "./ModalCart";
+import "./Header.css";
 
 function Header() {
+  const user = useSelector((state) => state.user);
   const [fullscreenRegister, setFullscreenRegister] = useState(true);
   const [showRegister, setShowRegister] = useState(false);
   const [fullscreenLogin, setFullscreenLogin] = useState(true);
@@ -19,7 +20,6 @@ function Header() {
   const [showCart, setShowCart] = useState(false);
   const [scroll, setScroll] = useState(false);
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {

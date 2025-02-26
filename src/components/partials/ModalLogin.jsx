@@ -1,13 +1,13 @@
+import Modal from "react-bootstrap/Modal";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/userSlice";
+import axios from "axios";
 import { useState } from "react";
+import "./ModalLoginRegister.css";
 import { NavLink } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
-import Modal from "react-bootstrap/Modal";
-import ModalResetPass from "../admin/ModalResetPass";
-import axios from "axios";
 import "./ModalLogin.css";
-import "./ModalLoginRegister.css";
+import ModalResetPass from "../admin/ModalResetPass";
 
 function ModalLogin({
   fullscreen,

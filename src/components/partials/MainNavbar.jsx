@@ -1,30 +1,30 @@
 import { Link, NavLink } from "react-router-dom";
-import "./MainNavbar.css";
-import ModalRegister from "./ModalRegister";
-import ModalLogin from "./ModalLogin";
-import ModalCart from "./ModalCart";
 import { Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import "./Header.css";
 import { BsCartFill, BsFillPersonFill } from "react-icons/bs";
 import { HiOutlineLogout } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../redux/userSlice";
 import { FaBars } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
+import ModalRegister from "./ModalRegister";
+import ModalLogin from "./ModalLogin";
+import ModalCart from "./ModalCart";
+import "./Header.css";
+import "./MainNavbar.css";
 
 function MainNavbar() {
+  const user = useSelector((state) => state.user);
   const [fullscreenRegister, setFullscreenRegister] = useState(true);
   const [showRegister, setShowRegister] = useState(false);
   const [fullscreenLogin, setFullscreenLogin] = useState(true);
   const [showLogin, setShowLogin] = useState(false);
   const [showCart, setShowCart] = useState(false);
-  const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
   const [scrollData, setScrollData] = useState({ y: 0, lastY: 0 });
   const [showNav, setShowNav] = useState(true);
-
   const [mobile, setMobile] = useState(false);
+  
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const handleScroll = () => {

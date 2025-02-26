@@ -18,7 +18,7 @@ function Profile() {
   const [orders, setOrders] = useState("");
   const [show, setShow] = useState(false);
   const [selectedCart, setSelectedCart] = useState(null);
-  const [username, setUsername] = useState("");
+
   const navigate = useNavigate();
 
   const user = useSelector((state) => state.user);
@@ -51,7 +51,7 @@ function Profile() {
       setClient(data);
       setFirstname(data.firstname);
       setLastname(data.lastname);
-      setUsername(firstname + " " + lastname);
+    
       setEmail(data.email);
       console.log({ client });
     }

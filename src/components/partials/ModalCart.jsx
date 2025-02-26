@@ -1,10 +1,11 @@
 import Offcanvas from "react-bootstrap/Offcanvas";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import {
   BsFillPlusCircleFill,
   BsFillDashCircleFill,
   BsTrash3Fill,
 } from "react-icons/bs";
-import { useDispatch, useSelector } from "react-redux";
 import {
   addToCart,
   removeFromCart,
@@ -15,7 +16,6 @@ import {
   removePrice,
   removeTotalPrice,
 } from "../../redux/orderPriceSlice";
-import { NavLink } from "react-router-dom";
 import "./ModalCart.css";
 
 function ModalCart({
