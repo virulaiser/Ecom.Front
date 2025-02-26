@@ -2,13 +2,12 @@ import { useEffect, useState } from "react";
 import { LiaUserEditSolid } from "react-icons/lia";
 import { useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
-import axios from "axios";
-import "./Profile.css";
-import ModalOrder from "../partials/ModalOrder";
 import { format } from "date-fns";
-import { BiSolidUserCircle } from "react-icons/bi"
-import { BsFillArrowDownCircleFill } from "react-icons/bs"
+import { BiSolidUserCircle } from "react-icons/bi";
+import { BsFillArrowDownCircleFill } from "react-icons/bs";
+import ModalOrder from "../partials/ModalOrder";
 import useAxios from "../../hook/useAxios";
+import "./Profile.css";
 
 function Profile() {
   const [client, setClient] = useState({});
@@ -27,63 +26,65 @@ function Profile() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const {datas} =useAxios(`${import.meta.env.VITE_API_URL}/users/${user.id}`, "patch", { firstname, lastname, email, password});
-  const handleSubmit =  (e) => {
+  const { datas } = useAxios(
+    `${import.meta.env.VITE_API_URL}/users/${user.id}`,
+    "patch",
+    { firstname, lastname, email, password }
+  );
+  const handleSubmit = (e) => {
     e.preventDefault();
-     navigate(`/`);
-     console.log("sucessful",datas);
-    
-   };
+     console.log("sucessful", datas?.data );
+    navigate(`/`);
+  };
 
- const { data,loading,error } =  useAxios (`${import.meta.env.VITE_API_URL}/users/${user.id}`, "GET", null);
+  const { data, loading, error } = useAxios(
+    `${import.meta.env.VITE_API_URL}/users/${user.id}`,
+    "GET",
+    null
+  );
 
- useEffect (() => {
-    if (!user) {navigate("/")};
-   if(data){
-  setClient(data);
+  useEffect(() => {
+    if (!user) {
+      navigate("/");
+    }
+    if (data) {
+      setClient(data);
       setFirstname(data.firstname);
       setLastname(data.lastname);
       setUsername(firstname + " " + lastname);
       setEmail(data.email);
-      console.log({client});
-   }
-     }, [data,loading,error,user]);
+      console.log({ client });
+    }
+  }, [data, loading, error, user]);
 
-/* useEffect(() => {
-    const getOrders = async () => {
-      const responseOrders = await axios({
-        method: "get",
-        url: `${import.meta.env.VITE_API_URL}/orders/${user.id}`,
-      });
-      responseOrders && setOrders(responseOrders.data.orders);
-    };
-    getOrders();
-  }, [user]); */
-   
- 
-   const { data0 } = useAxios(`${import.meta.env.VITE_API_URL}/orders/${user.id}`, "GET", null);
+  const { data0 } = useAxios(
+    `${import.meta.env.VITE_API_URL}/orders/${user.id}`,
+    "GET",
+    null
+  );
 
-  useEffect( () => {
+  useEffect(() => {
     data0 && setOrders(data.data.orders);
-      console.log("order");
-}, [user]); 
-
+    console.log("order");
+  }, [user]);
 
   return (
-      email && (
-        
-     <div className="container-fluid d-flex flex-column p-0">
-    <div className="container-fluid d-flex align-items-center justify-content-center m-0 p-0 profile-banner">
-        <h2 className="text-white text-center title">
-            PROFILE
-        </h2>
-        <h3 className="mt-5 pt-5 fw-bold text-center slide-down">Slide down <BsFillArrowDownCircleFill /></h3>
-    </div>
-      { loading  && <p>Cargando...</p>}
-       {error && <p>Error: {error}</p>}
-    <div className="container">
-        <div className="mb-5 mt-5 p-3 text-white">
-            <h2 className="text-uppercase fw-bold contact-title"> <BiSolidUserCircle className="me-2 profile-icon"/> My account</h2>
+    email && (
+      <div className="container-fluid d-flex flex-column p-0">
+        <div className="container-fluid d-flex align-items-center justify-content-center m-0 p-0 profile-banner">
+          <h2 className="text-white text-center title">PROFILE</h2>
+          <h3 className="mt-5 pt-5 fw-bold text-center slide-down">
+            Slide down <BsFillArrowDownCircleFill />
+          </h3>
+        </div>
+        {loading && <p>Cargando...</p>}
+        {error && <p>Error: {error}</p>}
+        <div className="container">
+          <div className="mb-5 mt-5 p-3 text-white">
+            <h2 className="text-uppercase fw-bold contact-title">
+              {" "}
+              <BiSolidUserCircle className="me-2 profile-icon" /> My account
+            </h2>
             <span className="line-span"></span>
             <p className="fw-normal contact-text">
               Welcome{" "}

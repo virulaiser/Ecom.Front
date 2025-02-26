@@ -1,16 +1,15 @@
-import "./Product.css";
 import { BsCartFill } from "react-icons/bs";
-import Accordion from "react-bootstrap/Accordion";
 import { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-/* import axios from "axios"; */
 import { addToCart } from "../../redux/cartSlice";
 import { addPrice } from "../../redux/orderPriceSlice";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Accordion from "react-bootstrap/Accordion";
 import ProductCard from "../partials/ProductCard";
-import useAxios from "../../hook/useAxios"; 
+import useAxios from "../../hook/useAxios";
+import "react-toastify/dist/ReactToastify.css";
+import "./Product.css";
 
 function Product() {
   const params = useParams();
@@ -33,27 +32,16 @@ function Product() {
     });
   };
 
-/*   useEffect(() => {
-    const getProduct = async () => {
-      const response = await axios({
-        method: "GET",
-        url: `${import.meta.env.VITE_API_URL}/products/${slug}`,
-        headers: {
-          Authorization: "Bearer " + (user && user.token),
-        }, 
-      });
-      response && setProduct(response.data.product[0]);
-      response && setInterestingProduct(response.data.products);
-    };
-    getProduct();
-  }, [location.pathname]); */
+  const { data, loading, error } = useAxios(
+    `${import.meta.env.VITE_API_URL}/products/${slug}`,
+    "GET",
+    null
+  );
 
-  const { data,loading,error } =  useAxios(`${import.meta.env.VITE_API_URL}/products/${slug}`, "GET", null);
-
-  useEffect (() => {
-      data && setProduct(data.product[0]);
-      data && setInterestingProduct(data.products); 
-    }, [data,loading,error,location.pathname]);
+  useEffect(() => {
+    data && setProduct(data.product[0]);
+    data && setInterestingProduct(data.products);
+  }, [data, loading, error, location.pathname]);
 
   const handleAddCart = async (product) => {
     const control = cart.find((item) => item._id === product._id);
@@ -74,8 +62,8 @@ function Product() {
   return (
     product && (
       <>
-     { loading  && <p>Cargando...</p>}
-       {error && <p>Error: {error}</p>}  
+        {loading && <p>Cargando...</p>}
+        {error && <p>Error: {error}</p>}
         <div className="container-fluid main-container">
           <div className="container d-flex justify-content-center align-items-center mb-3 data-container">
             <div className="row g-0 mt-5">

@@ -1,33 +1,36 @@
 import { useDispatch, useSelector } from "react-redux";
-/* import axios from "axios"; */
-import {  useEffect, useState } from "react";
-import Carousel from "react-bootstrap/Carousel";
-import Image from "react-bootstrap/Image";
-import "./Home.css";
-import "./Products.css";
+import { useEffect, useState } from "react";
 import { addToCart } from "../../redux/cartSlice";
 import { addPrice } from "../../redux/orderPriceSlice";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { BsFillArrowDownCircleFill } from "react-icons/bs";
 import BackToTop from "../partials/BackToTop";
 import ProjectBtn from "../partials/ProjectBtn";
 import ProductCard from "../partials/ProductCard";
-import { BsFillArrowDownCircleFill } from "react-icons/bs";
 import useAxios from "../../hook/useAxios";
+import Carousel from "react-bootstrap/Carousel";
+import Image from "react-bootstrap/Image";
+import "react-toastify/dist/ReactToastify.css";
+import "./Home.css";
+import "./Products.css";
 
 function Home() {
   const [products, setProducts] = useState();
-  
+
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
-  const { data,loading,error } =  useAxios(`${import.meta.env.VITE_API_URL}/products/filter/top`, "GET", null);
+  const { data, loading, error } = useAxios(
+    `${import.meta.env.VITE_API_URL}/products/filter/top`,
+    "GET",
+    null
+  );
 
-  useEffect (() => {
-      data && setProducts(data); 
-    }, [data,loading,error]);
- 
-    const notify = () => {
+  useEffect(() => {
+    data && setProducts(data);
+  }, [data, loading, error]);
+
+  const notify = () => {
     toast.success("Product added!", {
       position: toast.POSITION.BOTTOM_LEFT,
     });
@@ -38,7 +41,6 @@ function Home() {
       position: toast.POSITION.BOTTOM_LEFT,
     });
   };
-
 
   const handleAddCart = async (product) => {
     const control = cart.find((item) => item._id === product._id);
@@ -59,8 +61,8 @@ function Home() {
   return (
     products && (
       <>
-      { loading  && <p>Cargando...</p>}
-       {error && <p>Error: {error}</p>}
+        {loading && <p>Cargando...</p>}
+        {error && <p>Error: {error}</p>}
         <div className="container-fluid p-0 g-0">
           <div className="home-banner"></div>
           <div className="home-gd-overlay"></div>

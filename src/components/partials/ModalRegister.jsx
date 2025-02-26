@@ -1,10 +1,10 @@
-import Modal from "react-bootstrap/Modal";
-import "./ModalLoginRegister.css";
 import { NavLink } from "react-router-dom";
-import { useState } from "react";
-import axios from "axios";
+import { useCallback, useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
+import useAxios from "../../hook/useAxios";
+import Modal from "react-bootstrap/Modal";
 import "./ModalLogin.css";
+import "./ModalLoginRegister.css";
 
 function ModalRegister({
   fullscreen,
@@ -16,19 +16,32 @@ function ModalRegister({
   setShowRegister,
   setFullscreenRegister,
 }) {
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [profile, setProfile] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = useCallback((e) => {
+    const { name, value } = e.target;
+    setProfile((prevFormData) => ({ ...prevFormData, [name]: value }));
+  }, []);
+
+  const { datas } = useAxios(
+    `${import.meta.env.VITE_API_URL}/users/`,
+    "post",
+    {
+      firstname: profile.firstname,
+      lastname: profile.lastname,
+      email: profile.email,
+      password: profile.password,
+    }
+  );
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await axios({
-      method: "post",
-      url: `${import.meta.env.VITE_API_URL}/users/`,
-      data: { firstname, lastname, email, password },
-    });
     handleShowAll(
       setShowLogin,
       setFullscreenLogin,
@@ -46,6 +59,7 @@ function ModalRegister({
         >
           <AiOutlineClose className="close-btn" />{" "}
         </span>
+        
         <Modal.Body className="modal-bg">
           <div className="register-container">
             <div className="register-img-container">
@@ -68,9 +82,10 @@ function ModalRegister({
                     type="text"
                     className="form-control input-form"
                     id="firstname"
+                    name="firstname"
                     aria-describedby="firstname"
-                    value={firstname}
-                    onChange={(event) => setFirstname(event.target.value)}
+                    value={profile.firstname}
+                    onChange={handleChange}
                     required
                   />
                 </div>
@@ -84,8 +99,8 @@ function ModalRegister({
                     name="lastname"
                     id="lastname"
                     autoComplete="off"
-                    value={lastname}
-                    onChange={(event) => setLastname(event.target.value)}
+                    value={profile.lastname}
+                    onChange={handleChange}
                     required
                   />
                 </div>
@@ -99,8 +114,8 @@ function ModalRegister({
                     name="email"
                     id="email"
                     autoComplete="off"
-                    value={email}
-                    onChange={(event) => setEmail(event.target.value)}
+                    value={profile.email}
+                    onChange={handleChange}
                     required
                   />
                 </div>
@@ -114,8 +129,8 @@ function ModalRegister({
                     name="password"
                     id="password"
                     autoComplete="off"
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
+                    value={profile.password}
+                    onChange={handleChange}
                     required
                   />
                 </div>

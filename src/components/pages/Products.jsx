@@ -1,13 +1,13 @@
-import "./Products.css";
 import { useEffect, useState } from "react";
 import { addToCart } from "../../redux/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { addPrice } from "../../redux/orderPriceSlice";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import ProductCard from "../partials/ProductCard";
 import { BsFillArrowDownCircleFill } from "react-icons/bs";
+import ProductCard from "../partials/ProductCard";
 import useAxios from "../../hook/useAxios";
+import "react-toastify/dist/ReactToastify.css";
+import "./Products.css";
 
 function Products() {
   const [products, setProducts] = useState();
@@ -27,11 +27,15 @@ function Products() {
     });
   };
 
-const { data,loading,error } =  useAxios(`${import.meta.env.VITE_API_URL}/products/filter/${filtered}`, "GET", null);
+  const { data, loading, error } = useAxios(
+    `${import.meta.env.VITE_API_URL}/products/filter/${filtered}`,
+    "GET",
+    null
+  );
 
-useEffect (() => {
-      data && setProducts(data); 
-    }, [data,loading,error,filtered]);
+  useEffect(() => {
+    data && setProducts(data);
+  }, [data, loading, error, filtered]);
 
   const handleAddCart = async (product) => {
     const control = cart.find((item) => item._id === product._id);
@@ -52,14 +56,14 @@ useEffect (() => {
   return (
     products && (
       <>
-      { loading  && <p>Cargando...</p>}
-       {error && <p>Error: {error}</p>}
+        {loading && <p>Cargando...</p>}
+        {error && <p>Error: {error}</p>}
         <div className="container-fluid main-container p-0">
           <div className="container-fluid d-flex align-items-center flex-column justify-content-center image-container m-0 p-0">
-            <h2 className="text-white text-center title">
-              PRODUCTS
-            </h2>
-            <h3 className="mt-5 pt-5 fw-bold text-center slide-down">Slide down <BsFillArrowDownCircleFill /></h3>
+            <h2 className="text-white text-center title">PRODUCTS</h2>
+            <h3 className="mt-5 pt-5 fw-bold text-center slide-down">
+              Slide down <BsFillArrowDownCircleFill />
+            </h3>
           </div>
           <div className="container mt-5">
             <div className="row d-flex justify-content-end pe-2 me-5">

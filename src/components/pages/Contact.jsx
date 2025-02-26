@@ -1,11 +1,12 @@
-import React from "react";
+import  { useCallback } from "react";
 import { useState } from "react";
 import "./Contact.css";
-import axios from "axios";
+/* import axios from "axios"; */
 import { BsFillArrowDownCircleFill } from "react-icons/bs";
-import { AiOutlineMail } from "react-icons/ai";
-import { useSelector } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
+/* import { AiOutlineMail } from "react-icons/ai";
+import { useSelector } from "react-redux"; */
+import {  NavLink } from "react-router-dom";
+import useAxios from "../../hook/useAxios";
 
 function Contact() {
   // const token = useSelector((state) => state.user.token);
@@ -21,35 +22,32 @@ function Contact() {
     options: "",
   });
 
-  const handleChange = (e) => {
+   const handleChange = useCallback((e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
+    setFormData((prevFormData) => ({ ...prevFormData,[name]: value,}));}, []); 
 
-  const sendForm = async (e) => {
-    e.preventDefault();
-    try {
-      // Realiza la solicitud POST utilizando Axios
-      const response = await axios({
-        method: "post",
-        url: `${import.meta.env.VITE_API_URL}/admin/contact`,
-        data: formData,
-      });
+const { data1 } = useAxios(
+  `${import.meta.env.VITE_API_URL}/admin/contact`,
+  "POST",
+  { formData },
+);
 
-      // Haz algo con la respuesta, como mostrarla en la consola
-      setFormData({
-        firstname: "",
-        lastname: "",
-        fone: "",
-        direction: "",
-        affaire: "",
-        options: "",
-      });
-    } catch (error) {
-      // Maneja errores, por ejemplo, mostrándolos en la consola
-      console.error(error);
-    }
-  };
+const sendForm = async (e) => {
+e.preventDefault();
+console.log(JSON.stringify(data1));
+try {
+  setFormData({
+    firstname: "",
+    lastname: "",
+    fone: "",
+    direction: "",
+    affaire: "",
+    options: "",
+  });
+} catch (error) {
+console.error(error);
+}
+}; 
 
   return (
     <>
